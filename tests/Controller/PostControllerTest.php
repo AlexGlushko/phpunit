@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Tests\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+
+class PostControllerTest extends WebTestCase
+{
+    public function testShowPost()
+    {
+
+        $client = self::createClient();
+
+        $crawler = $client->request('GET', '/post/hello-world');
+
+        $this->assertGreaterThan(
+            1,
+            $crawler->filter('html:contains("Hello World")')->count()
+            );
+
+    }
+}
