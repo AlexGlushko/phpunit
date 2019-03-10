@@ -14,9 +14,10 @@ class PostControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/post/hello-world');
 
         $this->assertGreaterThan(
-            1,
+            0,
             $crawler->filter('html:contains("Hello World")')->count()
-            );
+        );
+
 
     }
 }
